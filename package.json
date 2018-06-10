@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "A simple library for setting up TypeScript objects as test data - heavily inspired by the awesome Ruby's factory_bot",
   "main": "index.js",
+  "scripts": {
+    "commitmsg": "commitlint -E GIT_PARAMS --config ./.commitlintrc.yml"
+  },
   "repository": {
     "type": "git",
     "url": "roalcantara/factory-bot-ts"
@@ -14,5 +17,10 @@
     "factory-bot",
     "typescript"
   ],
-  "author": "Rogério R. Alcântara <rogerio.alcantara@gmail.com> (http://github.com/roalcantara)"
+  "author": "Rogério R. Alcântara <rogerio.alcantara@gmail.com> (http://github.com/roalcantara)",
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "husky": "^0.14.3"
+  }
 }

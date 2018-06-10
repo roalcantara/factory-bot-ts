@@ -1,0 +1,22 @@
+---
+extends:
+  - '@commitlint/config-conventional'
+rules:
+  header-max-length: [1, 'always', 72]
+  type-enum:
+  - 2
+  - always
+  - - feat
+    - fix
+    - docs
+    - style
+    - ref
+    - test
+    - revert
+    - chore
+    - ci
+    - build
+    - perf
+    - git
+  scope-case: [2, 'always', 'kebab-case']
+  subject-case: [2, 'always', 'sentence-case']
