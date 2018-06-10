@@ -1,0 +1,18 @@
+{
+  "name": "factory-bot-ts",
+  "version": "0.0.0",
+  "description": "A simple library for setting up TypeScript objects as test data - heavily inspired by the awesome Ruby's factory_bot",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "roalcantara/factory-bot-ts"
+  },
+  "keywords": [
+    "factory",
+    "factory_girl",
+    "factory_bot",
+    "factory-bot",
+    "typescript"
+  ],
+  "author": "Rogério R. Alcântara <rogerio.alcantara@gmail.com> (http://github.com/roalcantara)"
+}
