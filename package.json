@@ -22,6 +22,7 @@
     "typescript"
   ],
   "author": "Rogério R. Alcântara <rogerio.alcantara@gmail.com> (http://github.com/roalcantara)",
+  "license": "CC-BY-SA-4.0",
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
