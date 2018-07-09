@@ -1,6 +1,7 @@
 ---
 extends:
 - tslint:recommended
+- tslint-eslint-rules
 rules:
   # Class and Member design
   no-unnecessary-class:
@@ -269,3 +270,14 @@ rules:
   no-use-before-declare: true
   no-var-keyword: true
   object-literal-sort-keys: false
+
+  # tslint-eslint-rules
+  ter-padded-blocks:
+  - true
+  - never
+  ter-no-irregular-whitespace: true
+  ter-no-sparse-arrays: true
+  ter-indent:
+  - true
+  - 2
+  - SwitchCase: 1
