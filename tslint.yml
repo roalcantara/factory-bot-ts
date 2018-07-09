@@ -3,6 +3,7 @@ extends:
 - tslint:recommended
 - tslint-eslint-rules
 - tslint-clean-code
+- tslint-no-unused-expression-chai
 rules:
   # Class and Member design
   no-unnecessary-class:
@@ -262,7 +263,7 @@ rules:
   no-namespace: true
   no-internal-module: true
   radix: true
-  no-unused-expression:
+  no-unused-expression-chai:
   - true
   - allow-fast-null-checks
   no-empty: true
