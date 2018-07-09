@@ -6,7 +6,8 @@
   "scripts": {
     "commitmsg": "commitlint -E GIT_PARAMS --config ./.commitlintrc.yml",
     "clear": "rm -rf dist",
-    "build": "yarn clear && ./node_modules/.bin/tsc --p tsconfig.json"
+    "build": "yarn clear && ./node_modules/.bin/tsc --p tsconfig.json",
+    "lint": "./node_modules/.bin/tslint -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
     "husky": "^0.14.3",
+    "tslint": "^5.10.0",
     "typescript": "^2.9.2"
   }
 }
