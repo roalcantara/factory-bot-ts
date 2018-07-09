@@ -2,9 +2,11 @@
   "name": "factory-bot-ts",
   "version": "0.0.0",
   "description": "A simple library for setting up TypeScript objects as test data - heavily inspired by the awesome Ruby's factory_bot",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "commitmsg": "commitlint -E GIT_PARAMS --config ./.commitlintrc.yml"
+    "commitmsg": "commitlint -E GIT_PARAMS --config ./.commitlintrc.yml",
+    "clear": "rm -rf dist",
+    "build": "yarn clear && ./node_modules/.bin/tsc --p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "typescript": "^2.9.2"
   }
 }
