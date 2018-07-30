@@ -14,8 +14,8 @@ export declare class FactoryBot {
         new (): T;
     } | any): void;
     instantiate<T>(type: (new () => T)): T;
-    build<T = {}>(name: string, attributes?: T): T;
-    buildList<T = {}>(name: string, length?: number, attributes?: T): Array<T>;
+    build<T = {}>(name: string, attributes?: Partial<T>): T;
+    buildList<T = {}>(name: string, length?: number, attributes?: Partial<T>): Array<T>;
     rand<T>(enumInstance: T): T;
     seq(callbackfn: (seq: number) => FactoryAttribute): FactoryAttribute;
     private parse;

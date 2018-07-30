@@ -36,7 +36,7 @@ export class FactoryBot {
     return new type()
   }
 
-  build <T = {}>(name: string, attributes ?: T): T {
+  build <T = {}>(name: string, attributes ?: Partial<T>): T {
     const factory = this.factories[name] as Factory
     const instance = factory.clazz ? this.instantiate<T>(factory.clazz) : {}
 
@@ -49,7 +49,7 @@ export class FactoryBot {
     return Object.assign(instance, attributes) as T
   }
 
-  buildList <T = {}>(name: string, length = 1, attributes ?: T): Array <T> {
+  buildList<T = {}>(name: string, length = 1, attributes?: Partial<T>): Array <T> {
     return Array<T>(length)
       .fill(undefined)
         .map(() => this.build<T>(name, attributes))
