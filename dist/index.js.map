@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;AAAA,6CAA0C;AAE1C,IAAM,OAAO,GAAG,IAAI,wBAAU,EAAE,CAAA;AAGnB,6BAAU","sourcesContent":["import { FactoryBot } from './factory-bot'\n\nconst factory = new FactoryBot()\n\nexport {\n  factory as FactoryBot\n}\n"]}

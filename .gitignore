@@ -93,6 +93,3 @@ Temporary Items
 
 # VSCode files
 .vscode
-
-# TypeScript Dist Folder
-dist
