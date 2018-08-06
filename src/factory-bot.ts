@@ -22,7 +22,7 @@ export class FactoryBot {
   }
 
   clear(): void {
-    this.factories.clear()
+    this.factories = new Map<string, Factory>()
     this.sequences = 0
   }
 

@@ -199,6 +199,27 @@ describe('FactoryBot', () => {
     })
   })
 
+  describe('#clear', () => {
+    context('when there are factories defined', () => {
+      before(() => {
+        FactoryBot.define<Ninja>('ninja', {
+          id: 1,
+          name: 'Kakashi Hatake',
+          username: 'kakashi',
+          level: NinjaRank.GENIN,
+          sensor: false
+        }, Ninja)
+      })
+
+      it('cleans up all factories', () => {
+        FactoryBot.clear()
+
+        expect(FactoryBot.count()).to
+          .eq(0)
+      })
+    })
+  })
+
   describe('#build', () => {
     before(() => {
       FactoryBot.define('ninja', {
