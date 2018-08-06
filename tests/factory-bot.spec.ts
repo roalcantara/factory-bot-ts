@@ -9,7 +9,7 @@ import { expect, Faker } from '.'
 export enum NinjaRank {
   GENIN = 'Genin',
   CHUUNIN = 'Chuunin',
-  JOUNIN = 'Jounin'
+  JONIN = 'Jōnin'
 }
 
 export class Ninja {
@@ -70,7 +70,7 @@ describe('FactoryBot', () => {
       })
 
       it('returns a random enum value', () => {
-        expect([NinjaRank.CHUUNIN, NinjaRank.GENIN, NinjaRank.JOUNIN]).to
+        expect([NinjaRank.CHUUNIN, NinjaRank.GENIN, NinjaRank.JONIN]).to
           .include(value)
       })
     })

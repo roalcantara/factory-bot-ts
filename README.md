@@ -26,7 +26,7 @@ yarn add factory-bot-ts --dev
   export enum NinjaRank {
     GENIN = 'Genin',
     CHUUNIN = 'Chuunin',
-    JOUNIN = 'Jounin'
+    JONIN = 'Jonin'
   }
 
   export class Ninja {
@@ -157,7 +157,7 @@ Factory-bot-ts also allow us to define..
     id: 43748,
     name: 'Martine Romaguera MD',
     username: 'Kaleb_Homenick',
-    level: 'Jounin',
+    level: 'Jonin',
     sensor: true
   } */
 ```
