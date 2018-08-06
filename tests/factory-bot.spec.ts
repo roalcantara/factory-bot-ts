@@ -256,6 +256,61 @@ describe('FactoryBot', () => {
     })
   })
 
+  describe('#extend', () => {
+    context('when a factory already exist', () => {
+      before(() => {
+        FactoryBot.define<Ninja>('ninja', {
+          id: 1,
+          name: 'Kakashi Hatake',
+          username: 'kakashi',
+          level: NinjaRank.GENIN,
+          sensor: false
+        }, Ninja)
+
+        FactoryBot.extend<Ninja>('ninja', 'jōnin', {
+          level: NinjaRank.JONIN
+        })
+      })
+
+      it('extends existing factories in order to generate specialized data', () => {
+        expect(FactoryBot.build<Ninja>('jōnin')).to.deep
+          .eq(new Ninja({
+            id: 1,
+            name: 'Kakashi Hatake',
+            username: 'kakashi',
+            level: NinjaRank.JONIN,
+            sensor: false
+          }))
+      })
+
+      context('when the trait already exists', () => {
+        it('throws an error', () => {
+          expect(() => {
+            FactoryBot.extend<Ninja>('ninja', 'jōnin', {
+              level: NinjaRank.JONIN
+            })
+          }).to
+          .throw(Error, "Factory 'ninja'`s trait 'jōnin' has already been defined!")
+        })
+      })
+    })
+
+    context('when the factory does not exist', () => {
+      beforeEach(() => {
+        FactoryBot.clear()
+      })
+
+      it('throws an error', () => {
+        expect(() => {
+          FactoryBot.extend<Ninja>('ninja', 'jōnin', {
+            level: NinjaRank.JONIN
+          })
+        }).to
+        .throw(Error, "Factory 'ninja' has not been defined!")
+      })
+    })
+  })
+
   describe('#build', () => {
     before(() => {
       FactoryBot.define('ninja', {

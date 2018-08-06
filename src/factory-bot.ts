@@ -32,6 +32,17 @@ export class FactoryBot {
     }
   }
 
+  extend<T = {}>(name: string, trait: string, attributes: Partial<T>): void {
+    if (!this.has(name)) throw new Error(`Factory '${name}' has not been defined!`)
+    if (this.has(trait)) throw new Error(`Factory '${name}'\`s trait '${trait}' has already been defined!`)
+
+    this.factories[trait] = this.factories[name]
+
+    this.factories[trait].attributes = Object.assign({},
+      ...this.factories[name].attributes, attributes
+    )
+  }
+
   instantiate<T>(type: (new () => T)): T {
     return new type()
   }
