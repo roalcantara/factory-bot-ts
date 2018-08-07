@@ -13,6 +13,7 @@ export declare class FactoryBot {
     define<T = {}>(name: string, attributes: Partial<T>, clazz?: {
         new (): T;
     } | any): void;
+    extend<T = {}>(name: string, trait: string, attributes: Partial<T>): void;
     instantiate<T>(type: (new () => T)): T;
     build<T = {}>(name: string, attributes?: Partial<T>): T;
     buildList<T = {}>(name: string, length?: number, attributes?: Partial<T>): Array<T>;

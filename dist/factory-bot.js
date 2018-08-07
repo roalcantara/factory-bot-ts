@@ -15,16 +15,24 @@ var FactoryBot = /** @class */ (function () {
         return this.factories[name] !== undefined;
     };
     FactoryBot.prototype.count = function () {
-        return this.factories.keys.length;
+        return Object.keys(this.factories).length;
     };
     FactoryBot.prototype.clear = function () {
-        this.factories.clear();
+        this.factories = new Map();
         this.sequences = 0;
     };
     FactoryBot.prototype.define = function (name, attributes, clazz) {
         this.factories[name] = {
             clazz: clazz, attributes: attributes
         };
+    };
+    FactoryBot.prototype.extend = function (name, trait, attributes) {
+        if (!this.has(name))
+            throw new Error("Factory '" + name + "' has not been defined!");
+        if (this.has(trait))
+            throw new Error("Factory '" + name + "'`s trait '" + trait + "' has already been defined!");
+        this.factories[trait] = this.factories[name];
+        this.factories[trait].attributes = Object.assign.apply(Object, [{}].concat(this.factories[name].attributes, [attributes]));
     };
     FactoryBot.prototype.instantiate = function (type) {
         return new type();
