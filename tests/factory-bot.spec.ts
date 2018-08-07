@@ -199,6 +199,42 @@ describe('FactoryBot', () => {
     })
   })
 
+  describe('#count', () => {
+    context('when there are no factories defined', () => {
+      before(() => {
+        FactoryBot.clear()
+      })
+
+      it('returns zero', () => {
+        expect(FactoryBot.count()).to
+          .eq(0)
+      })
+    })
+
+    context('when there are factories are defined', () => {
+      before(() => {
+        FactoryBot.define<Ninja>('ninja', {
+          id: 1,
+          name: 'Kakashi Hatake',
+          username: 'kakashi',
+          level: NinjaRank.GENIN,
+          sensor: false
+        }, Ninja)
+
+        FactoryBot.define('village', {
+          id: () => Faker.random.uuid(),
+          name: 'Leaf',
+          members: () => FactoryBot.buildList('ninja', 2)
+        }, Village)
+      })
+
+      it('returns the quantity of defined factories', () => {
+        expect(FactoryBot.count()).to
+          .eq(2)
+      })
+    })
+  })
+
   describe('#clear', () => {
     context('when there are factories defined', () => {
       before(() => {

@@ -18,7 +18,7 @@ export class FactoryBot {
   }
 
   count(): number {
-    return this.factories.keys.length
+    return Object.keys(this.factories).length
   }
 
   clear(): void {
