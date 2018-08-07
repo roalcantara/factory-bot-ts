@@ -18,11 +18,11 @@ export class FactoryBot {
   }
 
   count(): number {
-    return this.factories.keys.length
+    return Object.keys(this.factories).length
   }
 
   clear(): void {
-    this.factories.clear()
+    this.factories = new Map<string, Factory>()
     this.sequences = 0
   }
 
@@ -30,6 +30,17 @@ export class FactoryBot {
     this.factories[name] = {
       clazz, attributes
     }
+  }
+
+  extend<T = {}>(name: string, trait: string, attributes: Partial<T>): void {
+    if (!this.has(name)) throw new Error(`Factory '${name}' has not been defined!`)
+    if (this.has(trait)) throw new Error(`Factory '${name}'\`s trait '${trait}' has already been defined!`)
+
+    this.factories[trait] = this.factories[name]
+
+    this.factories[trait].attributes = Object.assign({},
+      ...this.factories[name].attributes, attributes
+    )
   }
 
   instantiate<T>(type: (new () => T)): T {

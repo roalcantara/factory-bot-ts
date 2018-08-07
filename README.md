@@ -26,7 +26,7 @@ yarn add factory-bot-ts --dev
   export enum NinjaRank {
     GENIN = 'Genin',
     CHUUNIN = 'Chuunin',
-    JOUNIN = 'Jounin'
+    JONIN = 'Jonin'
   }
 
   export class Ninja {
@@ -98,9 +98,9 @@ yarn add factory-bot-ts --dev
 
 ## More
 
-Factory-bot-ts also allow us to define..
+Factory-bot-ts also allow us to..
 
-**1.** Untyped factories with static data
+**1.** Define untyped factories with static data
 
 ```typescript
   FactoryBot.define('ninja', {
@@ -122,7 +122,7 @@ Factory-bot-ts also allow us to define..
   } */
 ```
 
-**2.** Factories with type checking
+**2.** Define factories with type checking
 
 ```typescript
   FactoryBot.define<Ninja>('ninja', {
@@ -142,7 +142,7 @@ Factory-bot-ts also allow us to define..
   } */
 ```
 
-**3.** Factories with Dynamic data
+**3.** Define factories with Dynamic data
 
 ```typescript
   FactoryBot.define('ninja', {
@@ -157,12 +157,12 @@ Factory-bot-ts also allow us to define..
     id: 43748,
     name: 'Martine Romaguera MD',
     username: 'Kaleb_Homenick',
-    level: 'Jounin',
+    level: 'Jonin',
     sensor: true
   } */
 ```
 
-**4.** Factories with custom, random and sequenced data
+**4.** Define factories with custom, random and sequenced data
 
 ```typescript
   FactoryBot.define('ninja', {
@@ -190,7 +190,7 @@ Factory-bot-ts also allow us to define..
   } */
 ```
 
-**5.** And chained factories
+**5.** Define chained factories
 
 ```typescript
   FactoryBot.define('ninja', {
@@ -223,6 +223,38 @@ Factory-bot-ts also allow us to define..
       level: 'Genin',
       sensor: false
     }]
+  } */
+```
+
+**6.** Extend existing factories in order to generate specialized data
+
+```typescript
+  FactoryBot.define<Ninja>('ninja', {
+    id: 1,
+    name: 'Kakashi Hatake',
+    username: 'kakashi',
+    level: NinjaRank.GENIN,
+    sensor: false
+  }, Ninja)
+
+  FactoryBot.extend<Ninja>('ninja', 'jōnin', {
+    level: NinjaRank.JONIN
+  })
+
+  FactoryBot.build<Ninja>('ninja') /* => Ninja {
+    id: 1,
+    name: 'Kakashi Hatake',
+    username: 'kakashi',
+    level: Genin,
+    sensor: false
+  } */
+
+  FactoryBot.build<Ninja>('jōnin') /* => Ninja {
+    id: 1,
+    name: 'Kakashi Hatake',
+    username: 'kakashi',
+    level: Jōnin,
+    sensor: false
   } */
 ```
 

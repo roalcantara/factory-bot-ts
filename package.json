@@ -1,6 +1,6 @@
 {
   "name": "factory-bot-ts",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple library for setting up TypeScript objects as test data - heavily inspired by the awesome Ruby's factory_bot",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
