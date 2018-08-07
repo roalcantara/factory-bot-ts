@@ -270,6 +270,11 @@ describe('FactoryBot', () => {
         FactoryBot.extend<Ninja>('ninja', 'jōnin', {
           level: NinjaRank.JONIN
         })
+
+        FactoryBot.extend<Ninja>('ninja', 'chuunin:sensor', {
+          level: NinjaRank.CHUUNIN,
+          sensor: true
+        })
       })
 
       it('extends existing factories in order to generate specialized data', () => {
@@ -280,6 +285,15 @@ describe('FactoryBot', () => {
             username: 'kakashi',
             level: NinjaRank.JONIN,
             sensor: false
+          }))
+
+        expect(FactoryBot.build<Ninja>('chuunin:sensor')).to.deep
+          .eq(new Ninja({
+            id: 1,
+            name: 'Kakashi Hatake',
+            username: 'kakashi',
+            level: NinjaRank.CHUUNIN,
+            sensor: true
           }))
       })
 
