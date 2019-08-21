@@ -1,5 +1,7 @@
 # factory-bot-ts
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/roalcantara/factory-bot-ts.svg)](https://greenkeeper.io/)
+
 A simple library for setting up [TypeScript](https://www.typescriptlang.org/) objects as test data - heavily inspired by the awesome Ruby's [factory_bot](https://github.com/thoughtbot/factory_bot).
 
 - Fully written in [TypeScript](https://www.typescriptlang.org/)
